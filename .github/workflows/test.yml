@@ -31,7 +31,7 @@ jobs:
         run: |
           DATE=$(date +"%b-%d-%y")
           ARTIFACT_NAME="Firebase_Chat_${DATE}-apk"
-          echo "artifact_name=$ARTIFACT_NAME" >>"$GITHUB_OUTPUT"
+          echo "artifact_name = $ARTIFACT_NAME" >>"$GITHUB_OUTPUT"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
