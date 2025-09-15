@@ -7,12 +7,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rive/rive.dart';
 
 void bootstrap({required FutureOr<Widget> Function() builder}) {
   return runZonedGuarded(
     () async {
       WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+      await RiveFile.initialize();
       await NotificationHelper.instance.init();
       if (!kIsWeb) {
         await Future.wait([_configureSystemUi(), Preference().init()]);
