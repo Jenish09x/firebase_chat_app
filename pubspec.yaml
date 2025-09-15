@@ -26,6 +26,9 @@ dependencies:
   firebase_messaging: ^16.0.1
   flutter_local_notifications: ^19.4.1
 
+  #------------ rive animations ------------#
+  rive: ^0.13.20
+
   #----------- network -----------#
   network:
     path: network
@@ -54,6 +57,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/animations/
 
   fonts:
     - family: nunito-sans
