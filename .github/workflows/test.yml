@@ -26,8 +26,15 @@ jobs:
       - name: Build apk
         run: flutter build apk --release
 
+      - name: Set artifact name
+        id: artifact_name
+        run: |
+          DATE=$(date +"%b-%d-%y")
+          ARTIFACT_NAME="Firebase_Chat_${DATE}-apk"
+          echo "artifact_name = $ARTIFACT_NAME" >>"$GITHUB_OUTPUT"
+
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-release-apk
+          name: ${{ steps.artifact_name.outputs.artifact_name}}
           path: build/app/outputs/flutter-apk/app-release.apk
